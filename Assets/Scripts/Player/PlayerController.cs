@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb; // Referenz auf den Rigidbody des Spielers
 
-    public float dashSpeed = 20f; // Geschwindigkeit des Dashes
-    public float dashDuration = 0.1f; // Dauer des Dashes
-    public float dashCooldown = 1f; // Abklingzeit des Dashes
-    public float speed = 8f; // Bewegungsgeschwindigkeit des Spielers
-    public float jumpforce = 5f; //Sprungkraft für den Spieler
+    [SerializeField] private float dashSpeed = 20f; // Geschwindigkeit des Dashes
+    [SerializeField] private float dashDuration = 0.1f; // Dauer des Dashes
+    [SerializeField] private float dashCooldown = 1f; // Abklingzeit des Dashes
+    [SerializeField] private float speed = 8f; // Bewegungsgeschwindigkeit des Spielers
+    [SerializeField] private float jumpforce = 5f; //Sprungkraft für den Spieler
+    [SerializeField] private SpriteRenderer spriteRenderer; //SpriteRenderer des Player verknuepfen
 
     private float horizontal; // Horizontale Eingabe fuer die Bewegung
     private float dashTimer = 0f; // Timer fuer die Dauer des Dashes
@@ -23,14 +24,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return;
-
-        // Reduziere den Timer fuer die Dash-Abklingzeit
-        if (dashCooldownTimer > 0f)
-        {
-            dashCooldownTimer -= Time.deltaTime;
-        }
-        
+        FlipCharacterX();
+        DashCooldownTimer();
     }
 
     private void FixedUpdate()
@@ -44,9 +39,6 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext context)
     {
-    // Wenn der Spieler tot oder am Angreifen ist, wird nichts ausgefuehrt
-        if (isDead) return;
-
         // Wenn die Dash-Aktion ausgeloest wird und die Abklingzeit abgelaufen ist, starte das Dash
         if (context.performed && dashCooldownTimer <= 0f)
         {
@@ -84,8 +76,6 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (isDead) return;
-
         horizontal = context.ReadValue<Vector2>().x;
     }
     
@@ -101,7 +91,30 @@ public class PlayerController : MonoBehaviour
     public bool GetIsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 0.8f, LayerMask.GetMask("Ground"));
-        
+
     }
 
+    private void DashCooldownTimer()
+    {
+        // Reduziere den Timer fuer die Dash-Abklingzeit
+        if (dashCooldownTimer > 0f)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+        }
+    }
+
+
+    private void FlipCharacterX()
+    {
+        if (horizontal == -1)
+        {
+            //Bewegung nach Rechts
+            spriteRenderer.flipX = true;
+        }
+        else if (horizontal == 1)
+        {
+            //Bewegung nach Links
+            spriteRenderer.flipX = false;
+        }
+    }
 }
