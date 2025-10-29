@@ -1033,6 +1033,7 @@ MonoBehaviour:
   speed: 5
   jumpforce: 8
   spriteRenderer: {fileID: 1954833003}
+  animator: {fileID: 1954833004}
 --- !u!114 &1954832999
 MonoBehaviour:
   m_ObjectHideFlags: 0

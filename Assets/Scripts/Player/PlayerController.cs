@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
     public Rigidbody2D rb; // Referenz auf den Rigidbody des Spielers
 
     [SerializeField] private float dashSpeed = 20f; // Geschwindigkeit des Dashes
@@ -13,13 +12,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 1f; // Abklingzeit des Dashes
     [SerializeField] private float speed = 8f; // Bewegungsgeschwindigkeit des Spielers
     [SerializeField] private float jumpforce = 5f; //Sprungkraft für den Spieler
-    [SerializeField] private SpriteRenderer spriteRenderer; //SpriteRenderer des Player verknuepfen
+    [SerializeField] private SpriteRenderer spriteRenderer; //SpriteRenderer verknuepfen
+    [SerializeField] private Animator animator; //AnimatorController verknuepfen
 
     private float horizontal; // Horizontale Eingabe fuer die Bewegung
     private float dashTimer = 0f; // Timer fuer die Dauer des Dashes
     private float dashCooldownTimer = 0f; // Timer fuer die Abklingzeit des Dashes
-    
-    private bool isDead = false; // Gibt an, ob der Spieler tot ist
+    private float playerheight;
+
     private bool isDashing = false; // Gibt an, ob der Spieler gerade dashed
 
     void Update()
@@ -77,12 +77,13 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+        animator.SetFloat("SpeedY", Mathf.Abs(horizontal));
     }
-    
+
     public void Jump(InputAction.CallbackContext context)
     {
 
-        if (context.performed && !isDead && GetIsGrounded())
+        if (context.performed && GetIsGrounded())
         {
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
         }
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     public bool GetIsGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, 0.8f, LayerMask.GetMask("Ground"));
+        return Physics2D.Raycast(transform.position, Vector2.down, 4f, LayerMask.GetMask("Ground"));
 
     }
 
