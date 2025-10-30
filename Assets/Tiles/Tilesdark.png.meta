@@ -1,0 +1,1799 @@
+fileFormatVersion: 2
+guid: f13a2d9b3ed1b1a468996ac695bbf978
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4514346446738861516
+    second: Tilesdark_0
+  - first:
+      213: -7201055625506558949
+    second: Tilesdark_1
+  - first:
+      213: 3555376833853002831
+    second: Tilesdark_2
+  - first:
+      213: -810309220697871753
+    second: Tilesdark_3
+  - first:
+      213: 6615545762313519149
+    second: Tilesdark_4
+  - first:
+      213: 816553620191150791
+    second: Tilesdark_5
+  - first:
+      213: 3877738998739552818
+    second: Tilesdark_6
+  - first:
+      213: -1744430634266716052
+    second: Tilesdark_7
+  - first:
+      213: -982664627015607677
+    second: Tilesdark_8
+  - first:
+      213: -6281132094411740167
+    second: Tilesdark_9
+  - first:
+      213: -6956761143001379686
+    second: Tilesdark_10
+  - first:
+      213: -7930838353266472749
+    second: Tilesdark_11
+  - first:
+      213: -5078507157723054237
+    second: Tilesdark_12
+  - first:
+      213: -5154440526348008925
+    second: Tilesdark_13
+  - first:
+      213: -3456399677023983611
+    second: Tilesdark_14
+  - first:
+      213: 7756781937831639252
+    second: Tilesdark_15
+  - first:
+      213: 1989269205002693222
+    second: Tilesdark_16
+  - first:
+      213: 4679045792607138678
+    second: Tilesdark_17
+  - first:
+      213: -5476604648080963711
+    second: Tilesdark_18
+  - first:
+      213: -5981725256031166672
+    second: Tilesdark_19
+  - first:
+      213: -1027293462008659286
+    second: Tilesdark_20
+  - first:
+      213: 1905202773453869286
+    second: Tilesdark_21
+  - first:
+      213: 9074363234625114140
+    second: Tilesdark_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tilesdark_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23acc8ff21f70d530800000000000000
+      internalID: 3877738998739552818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_8
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a94656abfdc52f0800000000000000
+      internalID: -982664627015607677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_9
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb684593afe4d8a0800000000000000
+      internalID: -6281132094411740167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8028e798000f190800000000000000
+      internalID: -7930838353266472749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_13
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 322462396afb778b0800000000000000
+      internalID: -5154440526348008925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_14
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508e5397ec66800d0800000000000000
+      internalID: -3456399677023983611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_15
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8fe944310a5ab60800000000000000
+      internalID: 7756781937831639252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_16
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66a2fc66dcd4b9b10800000000000000
+      internalID: 1989269205002693222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67372249b5f4fe040800000000000000
+      internalID: 4679045792607138678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_18
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18781efb6113ff3b0800000000000000
+      internalID: -5476604648080963711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_19
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f974a7294acfca0800000000000000
+      internalID: -5981725256031166672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_20
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 217
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa284e40a025eb1f0800000000000000
+      internalID: -1027293462008659286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714212a908f92434890cd1e86775646d
+      internalID: 731594813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e045e99e2356cd4ca557dda3342e7ca
+      internalID: -4514346446738861516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07b892700e824b49ac8b98e32fbd5c3
+      internalID: -6956761143001379686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48fce38edb6346458c2a00396d3c8a5
+      internalID: -1422621757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fb456d5aeffd64ba9cdaaf120886cc
+      internalID: -5078507157723054237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d254ca3f7fb6c2746af4e94bc4f34e38
+      internalID: 6615545762313519149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_5
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d666e3ad240c7439be4456cd7c1635
+      internalID: 816553620191150791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_7
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024af38c91e27334dae726dc394f7a8c
+      internalID: -1744430634266716052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_10
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453c12f960f83764a8601b917c3cf391
+      internalID: 366617925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_21
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0ff9388bd430045a133af24b940be2
+      internalID: 1905202773453869286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_22
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e828f27186bcb841bfe6ad55b259f30
+      internalID: 9074363234625114140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_23
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccaa255170557294287208959d8b182d
+      internalID: 2000530396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b02e6e9711c9a4ca3160f30602abe4
+      internalID: 283624734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_25
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf9034a34a0ec94aa7e99a16dddac99
+      internalID: -1506594936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_26
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019fd062611a3924eb109475d4f49be6
+      internalID: 287883897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_27
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f327e929fd0603a4f82a17814488c0d0
+      internalID: 442961124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_28
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b792edf1ff05dd1488161fab17b5085a
+      internalID: 2118098671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_29
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe0e7d749ab81647861ac392a1423a3
+      internalID: 1541221490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_30
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d1c7961fd34a34d8e704dc8297b36a
+      internalID: -594002428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_31
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3297ed74d5ea8e74e9d9c9672a508fea
+      internalID: -1283254671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_32
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 313
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe3a24e9ccd6bd40b8e050b9a25d36d
+      internalID: -1436711334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_33
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 281
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546dd1dda7eb192478a725e2433ec81d
+      internalID: -1601465148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_34
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24183abfe7c008468aa3aecf2ae19c9
+      internalID: 2133114941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_35
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 247
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abab8433eef92ba449ad12b80b9e6d7e
+      internalID: -765385534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_36
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706d74ee11c005c41920cfb6ed26e88a
+      internalID: 1766752545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_37
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 213
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a4086e76b7c7a43871e330d442fc27
+      internalID: -778676044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_38
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6dde8a5362c7ce45b2c8f0b44a9ff77
+      internalID: 1983392071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_39
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4ee3ae770134748a3681737bb21b34
+      internalID: 2091694679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_40
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 181
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69ad3fa2b219d64b905f572e4783eb6
+      internalID: 1922863068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_41
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 249
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f420b283f052d4bb99d1d1c6cb28fe
+      internalID: 477978068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_42
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 217
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd73452f45bb3f4dbc3c8f5094d799a
+      internalID: -1316224331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_43
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 185
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d4faafad0e1d0438dfc0822f3dd2ca
+      internalID: 2038199341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_44
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 217
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b420fe5acc00a46824fb5e4c94397a
+      internalID: -87979356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_45
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 249
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70372a9d9f181e74d8334f5b775ad342
+      internalID: -2123956178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_46
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 249
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f05afca60eb994290e5712c1db6c12
+      internalID: -517293199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_47
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 185
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97fa05f8cdb560a479aed14addcbbd32
+      internalID: -321785135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_48
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 185
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b06170b4f3c104885cc69fe7ccdf65
+      internalID: 239085963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_49
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 137
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720f39aaebdd4ce4ebcf5c3d090e5df1
+      internalID: -1901688045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_50
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 137
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a1deeabeb452142b413753b6d69f5a
+      internalID: 163941480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_51
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 169
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34b5a80a4ef5e243ba3d65e23da6c83
+      internalID: -394230878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_52
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 137
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3224d20bc04a3048ab4d98a875c4cc4
+      internalID: 1024573014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_53
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 169
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c791f011a7d4a0448e8c2490f91829e
+      internalID: 1751249355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_54
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 137
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef411671db76ef49b6357026c9952bb
+      internalID: -1774622582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_55
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 371
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff5b807a1d11e94883f91846d28517e
+      internalID: -113765440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_56
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2c087c877ed1442bae4dd0b23531d3
+      internalID: -1987733466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_57
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4cc7f73e0015e4baa45a32362bb840
+      internalID: 1503189639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_58
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b519d13782be3745bff643a023db41d
+      internalID: -1262186932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_59
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0e82c1251416c46ae32675bd7a4581
+      internalID: -1816361794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_60
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a656d4815e76a4e88ca869823ca86b
+      internalID: 1534749293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_61
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8378011ee63036c49b63fcfd75d26690
+      internalID: -1462069748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_62
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d5c2c8df267b64d8b0fe70fc4c9947
+      internalID: 852877978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_63
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a746a8227080a854eb82e4b61a491a08
+      internalID: 547144802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_64
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 371
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81afbbee99958e541bd8841cd58de321
+      internalID: 1001962801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_65
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c106bf511447f44a7844f02dafd6e5
+      internalID: 1811055803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_66
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 371
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a2791b43ba3654aaf66f57a4383305
+      internalID: 2055921466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_67
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 371
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9ac0b1c6345084fbed3db100a8cc09
+      internalID: 293298940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_68
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c792c254b8845f4e90f19eddd5eaa9c
+      internalID: 1071796405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilesdark_69
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4516bd5c4269d9d4e9c90ada82806bb1
+      internalID: 690138190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e99c5c4de2203df4abd9f47c7addad45
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tilesdark_0: -4514346446738861516
+      Tilesdark_1: -6956761143001379686
+      Tilesdark_10: 366617925
+      Tilesdark_1000: -7201055625506558949
+      Tilesdark_11: -7930838353266472749
+      Tilesdark_12: 731594813
+      Tilesdark_13: -5154440526348008925
+      Tilesdark_14: -3456399677023983611
+      Tilesdark_15: 7756781937831639252
+      Tilesdark_16: 1989269205002693222
+      Tilesdark_17: 4679045792607138678
+      Tilesdark_18: -5476604648080963711
+      Tilesdark_19: -5981725256031166672
+      Tilesdark_2: -1422621757
+      Tilesdark_20: -1027293462008659286
+      Tilesdark_2000: 3555376833853002831
+      Tilesdark_21: 1905202773453869286
+      Tilesdark_22: 9074363234625114140
+      Tilesdark_23: 2000530396
+      Tilesdark_24: 283624734
+      Tilesdark_25: -1506594936
+      Tilesdark_26: 287883897
+      Tilesdark_27: 442961124
+      Tilesdark_28: 2118098671
+      Tilesdark_29: 1541221490
+      Tilesdark_3: -5078507157723054237
+      Tilesdark_30: -594002428
+      Tilesdark_3000: -810309220697871753
+      Tilesdark_31: -1283254671
+      Tilesdark_32: -1436711334
+      Tilesdark_33: -1601465148
+      Tilesdark_34: 2133114941
+      Tilesdark_35: -765385534
+      Tilesdark_36: 1766752545
+      Tilesdark_37: -778676044
+      Tilesdark_38: 1983392071
+      Tilesdark_39: 2091694679
+      Tilesdark_4: 6615545762313519149
+      Tilesdark_40: 1922863068
+      Tilesdark_41: 477978068
+      Tilesdark_42: -1316224331
+      Tilesdark_43: 2038199341
+      Tilesdark_44: -87979356
+      Tilesdark_45: -2123956178
+      Tilesdark_46: -517293199
+      Tilesdark_47: -321785135
+      Tilesdark_48: 239085963
+      Tilesdark_49: -1901688045
+      Tilesdark_5: 816553620191150791
+      Tilesdark_50: 163941480
+      Tilesdark_51: -394230878
+      Tilesdark_52: 1024573014
+      Tilesdark_53: 1751249355
+      Tilesdark_54: -1774622582
+      Tilesdark_55: -113765440
+      Tilesdark_56: -1987733466
+      Tilesdark_57: 1503189639
+      Tilesdark_58: -1262186932
+      Tilesdark_59: -1816361794
+      Tilesdark_6: 3877738998739552818
+      Tilesdark_60: 1534749293
+      Tilesdark_61: -1462069748
+      Tilesdark_62: 852877978
+      Tilesdark_63: 547144802
+      Tilesdark_64: 1001962801
+      Tilesdark_65: 1811055803
+      Tilesdark_66: 2055921466
+      Tilesdark_67: 293298940
+      Tilesdark_68: 1071796405
+      Tilesdark_69: 690138190
+      Tilesdark_7: -1744430634266716052
+      Tilesdark_8: -982664627015607677
+      Tilesdark_9: -6281132094411740167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

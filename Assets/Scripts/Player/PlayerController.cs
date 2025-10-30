@@ -11,21 +11,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.1f; // Dauer des Dashes
     [SerializeField] private float dashCooldown = 1f; // Abklingzeit des Dashes
     [SerializeField] private float speed = 8f; // Bewegungsgeschwindigkeit des Spielers
-    [SerializeField] private float jumpforce = 5f; //Sprungkraft für den Spieler
+    [SerializeField] private float jumpforce = 5f; //Sprungkraft fï¿½r den Spieler
+    [SerializeField] private float coyoteOffset = 0.1f;
+    [SerializeField] private float jumpBuffer = 0.1f;
+
     [SerializeField] private SpriteRenderer spriteRenderer; //SpriteRenderer verknuepfen
     [SerializeField] private Animator animator; //AnimatorController verknuepfen
 
     private float horizontal; // Horizontale Eingabe fuer die Bewegung
-    private float dashTimer = 0f; // Timer fuer die Dauer des Dashes
-    private float dashCooldownTimer = 0f; // Timer fuer die Abklingzeit des Dashes
-    private float playerheight;
+    private float dashTimer; // Timer fuer die Dauer des Dashes
+    private float dashCooldownTimer; // Timer fuer die Abklingzeit des Dashes
+    private float playerHalfHeight;
+    private float playerWidth;
+    private float coyoteTimer;
+    private float jumpBufferTimer;
 
     private bool isDashing = false; // Gibt an, ob der Spieler gerade dashed
+
+    void Start()
+    {
+        playerHalfHeight = spriteRenderer.bounds.extents.y;
+        playerWidth = spriteRenderer.bounds.extents.x;
+    }
 
     void Update()
     {
         FlipCharacterX();
         DashCooldownTimer();
+        IsGrounded();
+        JumpBuffer();
     }
 
     private void FixedUpdate()
@@ -42,7 +56,7 @@ public class PlayerController : MonoBehaviour
         // Wenn die Dash-Aktion ausgeloest wird und die Abklingzeit abgelaufen ist, starte das Dash
         if (context.performed && dashCooldownTimer <= 0f)
         {
-        StartCoroutine(DoDash());
+            StartCoroutine(DoDash());
         }
     }
 
@@ -77,22 +91,66 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
-        animator.SetFloat("SpeedY", Mathf.Abs(horizontal));
+        animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-
-        if (context.performed && GetIsGrounded())
+        if (context.performed)
         {
+            jumpBufferTimer = jumpBuffer;
+        }
+    }
+
+    private void JumpBuffer()
+    {
+        if (jumpBufferTimer > 0)
+        {
+            jumpBufferTimer -= Time.deltaTime;
+
+        }
+
+        if (jumpBufferTimer > 0 && coyoteTimer > 0)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
+
+            jumpBufferTimer = 0f;
+            coyoteTimer = 0f;
         }
     }
 
     public bool GetIsGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, 4f, LayerMask.GetMask("Ground"));
+        int groundMask = LayerMask.GetMask("Ground");
 
+        Vector2 center = (Vector2)transform.position;
+        Vector2 left = center + Vector2.left * playerWidth / 2.5f;
+        Vector2 right = center + Vector2.right * playerWidth / 2.5f;
+
+        bool hitCenter = Physics2D.Raycast(center, Vector2.down, playerHalfHeight + 0.1f, groundMask);
+        bool hitLeft = Physics2D.Raycast(left, Vector2.down, playerHalfHeight + 0.1f, groundMask);
+        bool hitRight = Physics2D.Raycast(right, Vector2.down, playerHalfHeight + 0.1f, groundMask);
+
+        //Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
+        //Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
+        //Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
+
+        return hitCenter || hitLeft || hitRight;
+    }
+
+    private void IsGrounded()
+    {
+        if (GetIsGrounded())
+        {
+            coyoteTimer = coyoteOffset;
+            animator.SetBool("Grounded", false);
+        }
+        else
+        {
+            coyoteTimer -= Time.deltaTime;
+            animator.SetBool("Grounded", true);
+        }
     }
 
     private void DashCooldownTimer()
@@ -118,4 +176,13 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
+
+    private void Falling()
+    {
+        if (rb.linearVelocity.y < 0 && !GetIsGrounded())
+        {
+
+        }
+    }
+
 }
