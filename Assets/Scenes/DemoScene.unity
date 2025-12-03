@@ -3668,12 +3668,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954833002}
-  - component: {fileID: 1954833004}
   - component: {fileID: 1954832997}
   - component: {fileID: 1954832996}
   - component: {fileID: 1954832999}
   - component: {fileID: 1954832998}
   - component: {fileID: 1954833003}
+  - component: {fileID: 1954833004}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3772,8 +3772,9 @@ MonoBehaviour:
   dashCooldown: 1
   speed: 8
   jumpforce: 8
-  coyoteOffset: 0.15
-  jumpBuffer: 0.15
+  coyoteOffset: 0.2
+  jumpBuffer: 0.2
+  wasDashing: 0.5
   spriteRenderer: {fileID: 1954833003}
   animator: {fileID: 1954833004}
 --- !u!114 &1954832999

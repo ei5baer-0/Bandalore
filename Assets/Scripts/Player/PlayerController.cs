@@ -5,15 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb; // Referenz auf den Rigidbody des Spielers
+    public Rigidbody2D rb;
 
     [SerializeField] private float dashSpeed = 20f; // Geschwindigkeit des Dashes
     [SerializeField] private float dashDuration = 0.1f; // Dauer des Dashes
     [SerializeField] private float dashCooldown = 1f; // Abklingzeit des Dashes
     [SerializeField] private float speed = 8f; // Bewegungsgeschwindigkeit des Spielers
-    [SerializeField] private float jumpforce = 5f; //Sprungkraft f�r den Spieler
+    [SerializeField] private float jumpforce = 5f; //Sprungkraft fuer den Spieler
     [SerializeField] private float coyoteOffset = 0.1f;
     [SerializeField] private float jumpBuffer = 0.1f;
+    [SerializeField] private float wasDashing = 5f; //Variable für Timer
 
     [SerializeField] private SpriteRenderer spriteRenderer; //SpriteRenderer verknuepfen
     [SerializeField] private Animator animator; //AnimatorController verknuepfen
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float playerWidth;
     private float coyoteTimer;
     private float jumpBufferTimer;
+    private float wasDashingTimer; //Timer
 
     private bool isDashing = false; // Gibt an, ob der Spieler gerade dashed
 
@@ -38,13 +40,15 @@ public class PlayerController : MonoBehaviour
     {
         FlipCharacterX();
         DashCooldownTimer();
+        WasDashingTimer();
         IsGrounded();
         JumpBuffer();
+        Falling();
     }
 
     private void FixedUpdate()
     {
-        // Bewege den Spieler horizontal basierend auf der horizontalen Eingabe
+        // Bewege den Spieler horizontal
         if (!isDashing)
         {
             rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -65,7 +69,9 @@ public class PlayerController : MonoBehaviour
     {
         if (horizontal != 0f)
         {
+            wasDashingTimer = wasDashing;
             isDashing = true;
+            animator.SetBool("IsDashing", true);
             dashTimer = dashDuration;
 
             Vector2 dashDirection = new Vector2(horizontal, 0f).normalized;
@@ -79,13 +85,10 @@ public class PlayerController : MonoBehaviour
 
             rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
             isDashing = false;
+            animator.SetBool("IsDashing", false);
 
             dashCooldownTimer = dashCooldown;
         }
-        /*else ()
-        {
-
-        } */
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -107,7 +110,6 @@ public class PlayerController : MonoBehaviour
         if (jumpBufferTimer > 0)
         {
             jumpBufferTimer -= Time.deltaTime;
-
         }
 
         if (jumpBufferTimer > 0 && coyoteTimer > 0)
@@ -132,9 +134,9 @@ public class PlayerController : MonoBehaviour
         bool hitLeft = Physics2D.Raycast(left, Vector2.down, playerHalfHeight + 0.1f, groundMask);
         bool hitRight = Physics2D.Raycast(right, Vector2.down, playerHalfHeight + 0.1f, groundMask);
 
-        //Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
-        //Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
-        //Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
+        Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
+        Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
+        Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
 
         return hitCenter || hitLeft || hitRight;
     }
@@ -144,12 +146,12 @@ public class PlayerController : MonoBehaviour
         if (GetIsGrounded())
         {
             coyoteTimer = coyoteOffset;
-            animator.SetBool("Grounded", false);
+            animator.SetBool("IsGrounded", true);
         }
         else
         {
             coyoteTimer -= Time.deltaTime;
-            animator.SetBool("Grounded", true);
+            animator.SetBool("IsGrounded", false);
         }
     }
 
@@ -162,6 +164,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void WasDashingTimer()
+    {
+        if (wasDashingTimer > 0f)
+        {
+            animator.SetBool("WasDashing", true);
+            wasDashingTimer -= Time.deltaTime;
+        }
+        else
+        {
+            animator.SetBool("WasDashing", false);
+        }
+    }
 
     private void FlipCharacterX()
     {
@@ -179,9 +193,15 @@ public class PlayerController : MonoBehaviour
 
     private void Falling()
     {
-        if (rb.linearVelocity.y < 0 && !GetIsGrounded())
+        if (rb.linearVelocity.y <= 0 && !GetIsGrounded())
         {
-
+            animator.SetBool("IsRising", false);
+            animator.SetBool("IsDecending", true);
+        }
+        else 
+        {
+            animator.SetBool("IsRising", true);
+            animator.SetBool("IsDecending", false);
         }
     }
 
