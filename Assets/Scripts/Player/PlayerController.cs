@@ -134,9 +134,9 @@ public class PlayerController : MonoBehaviour
         bool hitLeft = Physics2D.Raycast(left, Vector2.down, playerHalfHeight + 0.1f, groundMask);
         bool hitRight = Physics2D.Raycast(right, Vector2.down, playerHalfHeight + 0.1f, groundMask);
 
-        Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
-        Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
-        Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
+        //Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
+        //Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
+        //Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
 
         return hitCenter || hitLeft || hitRight;
     }
