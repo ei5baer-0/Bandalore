@@ -5,35 +5,37 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    [Header("References")]
+    [SerializeField] private Rigidbody2D rigidBody2D;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator animator;
 
-    [SerializeField] private float dashSpeed = 20f; // Geschwindigkeit des Dashes
-    [SerializeField] private float dashDuration = 0.1f; // Dauer des Dashes
-    [SerializeField] private float dashCooldown = 1f; // Abklingzeit des Dashes
-    [SerializeField] private float speed = 8f; // Bewegungsgeschwindigkeit des Spielers
-    [SerializeField] private float jumpforce = 5f; //Sprungkraft fuer den Spieler
-    [SerializeField] private float coyoteOffset = 0.1f;
-    [SerializeField] private float jumpBuffer = 0.1f;
-    [SerializeField] private float wasDashing = 5f; //Variable für Timer
+    [Header("Variables")]
+    [SerializeField] private float dashSpeed = 20f;         // Geschwindigkeit des Dashes
+    [SerializeField] private float dashDuration = 0.1f;     // Dauer des Dashes
+    [SerializeField] private float dashCooldown = 1f;       // Abklingzeit des Dashes
+    [SerializeField] private float playerSpeed = 8f;        // Bewegungsgeschwindigkeit des Spielers
+    [SerializeField] private float jumpForce = 8f;          // Sprungkraft fuer Spieler
+    [SerializeField] private float coyoteBuffer = 0.1f;     // Variable fuer Coyote Jump
+    [SerializeField] private float jumpBuffer = 0.1f;       // Variable fuer Jump Buffer
 
-    [SerializeField] private SpriteRenderer spriteRenderer; //SpriteRenderer verknuepfen
-    [SerializeField] private Animator animator; //AnimatorController verknuepfen
-
-    private float horizontal; // Horizontale Eingabe fuer die Bewegung
-    private float dashTimer; // Timer fuer die Dauer des Dashes
-    private float dashCooldownTimer; // Timer fuer die Abklingzeit des Dashes
     private float playerHalfHeight;
     private float playerWidth;
-    private float coyoteTimer;
-    private float jumpBufferTimer;
-    private float wasDashingTimer; //Timer
+    private float horizontal;                               // -1 == rechts | 1 == links
+    private float dashCooldownTimer;                        // Timer fuer die Abklingzeit des Dashes
+    private float coyoteTimer;                              // Timer fuer Coyote Buffer
+    private float jumpBufferTimer;                          
+    private float wasDashingTimer;
+    private float dashTime;                                 // Variable fuer Dash Laenge wird berechnet
 
-    private bool isDashing = false; // Gibt an, ob der Spieler gerade dashed
+    private bool isDashing = false;
 
     void Start()
     {
         playerHalfHeight = spriteRenderer.bounds.extents.y;
         playerWidth = spriteRenderer.bounds.extents.x;
+
+        UpdateAnimClipLenght();
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
         DashCooldownTimer();
         WasDashingTimer();
         IsGrounded();
-        JumpBuffer();
+        DoJump();
         Falling();
     }
 
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         // Bewege den Spieler horizontal
         if (!isDashing)
         {
-            rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+            rigidBody2D.linearVelocity = new Vector2(horizontal * playerSpeed, rigidBody2D.linearVelocity.y);
         }
     }
 
@@ -69,21 +71,21 @@ public class PlayerController : MonoBehaviour
     {
         if (horizontal != 0f)
         {
-            wasDashingTimer = wasDashing;
+            wasDashingTimer = dashTime;
             isDashing = true;
             animator.SetBool("IsDashing", true);
-            dashTimer = dashDuration;
+            float _dashTimer = dashDuration;
 
             Vector2 dashDirection = new Vector2(horizontal, 0f).normalized;
 
-            while (dashTimer > 0f)
+            while (_dashTimer > 0f)
             {
-                rb.linearVelocity = dashDirection * dashSpeed;
-                dashTimer -= Time.deltaTime;
+                rigidBody2D.linearVelocity = dashDirection * dashSpeed;
+                _dashTimer -= Time.deltaTime;
                 yield return null;
             }
 
-            rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+            rigidBody2D.linearVelocity = new Vector2(horizontal * playerSpeed, rigidBody2D.linearVelocity.y);
             isDashing = false;
             animator.SetBool("IsDashing", false);
 
@@ -105,7 +107,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void JumpBuffer()
+    private void DoJump()
     {
         if (jumpBufferTimer > 0)
         {
@@ -114,38 +116,37 @@ public class PlayerController : MonoBehaviour
 
         if (jumpBufferTimer > 0 && coyoteTimer > 0)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-            rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
+            rigidBody2D.linearVelocity = new Vector2(rigidBody2D.linearVelocity.x, 0f);
+            rigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
         }
     }
 
-    public bool GetIsGrounded()
+    private bool GetIsGrounded()
     {
-        int groundMask = LayerMask.GetMask("Ground");
+        int _groundMask = LayerMask.GetMask("Ground");
 
+        // 3 Punkte werden brechnet, ganz links, mitte und ganz rechts
         Vector2 center = (Vector2)transform.position;
         Vector2 left = center + Vector2.left * playerWidth / 2.5f;
         Vector2 right = center + Vector2.right * playerWidth / 2.5f;
 
-        bool hitCenter = Physics2D.Raycast(center, Vector2.down, playerHalfHeight + 0.1f, groundMask);
-        bool hitLeft = Physics2D.Raycast(left, Vector2.down, playerHalfHeight + 0.1f, groundMask);
-        bool hitRight = Physics2D.Raycast(right, Vector2.down, playerHalfHeight + 0.1f, groundMask);
+        // Rays werden nach unten geworfen an den 3 vorherigen Berechneten Punkten und gecheckt ob die Maske "Ground" getroffen wurde
+        bool _hitCenter = Physics2D.Raycast(center, Vector2.down, playerHalfHeight + 0.1f, _groundMask);
+        bool _hitLeft = Physics2D.Raycast(left, Vector2.down, playerHalfHeight + 0.1f, _groundMask);
+        bool _hitRight = Physics2D.Raycast(right, Vector2.down, playerHalfHeight + 0.1f, _groundMask);
 
-        //Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
-        //Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
-        //Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
-
-        return hitCenter || hitLeft || hitRight;
+        // Gebe wieder ob einer von den dreien "Ground" getreffen hat
+        return _hitCenter || _hitLeft || _hitRight;
     }
 
     private void IsGrounded()
     {
         if (GetIsGrounded())
         {
-            coyoteTimer = coyoteOffset;
+            coyoteTimer = coyoteBuffer;
             animator.SetBool("IsGrounded", true);
         }
         else
@@ -157,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
     private void DashCooldownTimer()
     {
-        // Reduziere den Timer fuer die Dash-Abklingzeit
+        // Timer für Dash Cooldown
         if (dashCooldownTimer > 0f)
         {
             dashCooldownTimer -= Time.deltaTime;
@@ -193,16 +194,27 @@ public class PlayerController : MonoBehaviour
 
     private void Falling()
     {
-        if (rb.linearVelocity.y <= 0 && !GetIsGrounded())
+        if (rigidBody2D.linearVelocity.y <= 0 && !GetIsGrounded())
         {
             animator.SetBool("IsRising", false);
             animator.SetBool("IsDecending", true);
         }
-        else 
+        else
         {
             animator.SetBool("IsRising", true);
             animator.SetBool("IsDecending", false);
         }
     }
 
+    private void UpdateAnimClipLenght()
+    {
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == "Dash")
+            {
+                dashTime = clip.length;
+                break;
+            }
+        }
+    }
 }

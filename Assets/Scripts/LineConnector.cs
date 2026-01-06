@@ -5,10 +5,7 @@ public class LineConnector : MonoBehaviour
 {
     private enum State
     {
-        Idle,
-        Extending,
-        Retracting,
-        Pulling
+        Idle, Extending, Retracting, Pulling
     }
 
     [Header("References")]
@@ -23,6 +20,7 @@ public class LineConnector : MonoBehaviour
     [SerializeField] private float lineRetractSpeed = 3f;
     [SerializeField] private float pullSpeed = 5f;
     [SerializeField] private float pullDuration = 1f;
+    [SerializeField] private float cooldown = 3f;
 
     private State state = State.Idle;
     private Vector2 targetEnd;
@@ -30,14 +28,25 @@ public class LineConnector : MonoBehaviour
     private float progress;
     private float pullTimer;
     private bool hitSomething;
+    private float cooldownTimer;
 
+    void Start()
+    {
+        cooldownTimer = cooldown;
+    }
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && state == State.Idle)
+        if (Mouse.current.leftButton.wasPressedThisFrame && state == State.Idle && cooldownTimer <= 0)
         {
             StartLine();
+            cooldownTimer = cooldown;
         }
+        StateSwitch();
+        CooldownTimer();
+    }
 
+    private void StateSwitch()
+    {
         switch (state)
         {
             case State.Extending:
@@ -49,6 +58,14 @@ public class LineConnector : MonoBehaviour
             case State.Pulling:
                 PullObject();
                 break;
+        }
+    }
+
+    private void CooldownTimer()
+    {
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
         }
     }
 

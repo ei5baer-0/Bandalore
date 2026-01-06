@@ -3,17 +3,18 @@ using UnityEngine.InputSystem;
 
 public class FollowMouse : MonoBehaviour
 {
-    private Camera mainCamera;
-
+    [Header("References")]
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform boxTransform;
     [SerializeField] private Transform centerTransform;
-    [SerializeField] private float radius = 1f;
+
+    [Header("Variables")]
+    [SerializeField] private float radius = 1f;             // Radius fuer Maus
 
     private Vector2 mousePosition;
 
     void Start()
     {
-        Cursor.visible = false;
         mainCamera = Camera.main;
     }
 

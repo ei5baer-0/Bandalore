@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public Animator animator;
+    [Header("References")]
+    [SerializeField] private Animator animator;
 
+    [Header("Variables")]
     [SerializeField] private float transitionTime = 1f;
 
     public void LevelTransition(string sceneName)

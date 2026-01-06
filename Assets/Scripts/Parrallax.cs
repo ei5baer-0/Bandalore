@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class Parralax : MonoBehaviour
 {
+    [Header("References")]
     public GameObject Camera;
 
-    private float lenght, hight, startposx, startposy;
-
+    [Header("Variables")]
     [SerializeField] private float parralaxEffectX;
     [SerializeField] private float parralaxEffectY;
     [SerializeField] private float idleMovement;
+
+    private float lenght;
+    private float hight;
     private float idleOffset;
+    private float startposx;
+    private float startposy;
 
     void Start()
     {
@@ -34,7 +39,7 @@ public class Parralax : MonoBehaviour
         
     }
 
-    void UpdateX()
+    private void UpdateX()
     {
         float temp1 = (Camera.transform.position.x * (1 - parralaxEffectX));
         float dist1 = (Camera.transform.position.x * parralaxEffectX);
@@ -45,7 +50,7 @@ public class Parralax : MonoBehaviour
         else if (temp1 < startposx - lenght) startposx -= lenght;
     }
 
-    void UpdateY()
+    private void UpdateY()
     {
         float temp2 = (Camera.transform.position.y * (1 - parralaxEffectY));
         float dist2 = (Camera.transform.position.y * parralaxEffectY);
@@ -53,7 +58,7 @@ public class Parralax : MonoBehaviour
         transform.position = new Vector3(transform.position.x, startposy + dist2, transform.position.z);
     }
 
-    void Idle()
+    private void Idle()
     {
         float temp1 = Camera.transform.position.x;
         float dist1 = (temp1 * parralaxEffectX);

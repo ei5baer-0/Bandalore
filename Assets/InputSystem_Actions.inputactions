@@ -113,6 +113,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Dev",
+            "id": "0545a161-cbe3-417e-a07b-d74c33936979",
+            "actions": [
+                {
+                    "name": "TimeStop",
+                    "type": "Button",
+                    "id": "61f7a81b-a1f7-4aa6-b14e-f38c3e1d5ba5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "945a290c-0024-45f1-8593-51e78700a859",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TimeStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

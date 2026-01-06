@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public Animator animatorTitle;
-    public Animator animatorNewGame;
-    public Animator animatorContinue;
-    public Animator animatorSettings;
-    public Animator animatorLeaderboard;
-
+    [Header("References")]
+    [SerializeField] private Animator animatorTitle;
+    [SerializeField] private Animator animatorNewGame;
+    [SerializeField] private Animator animatorContinue;
+    [SerializeField] private Animator animatorSettings;
+    [SerializeField] private Animator animatorLeaderboard;
     [SerializeField] private LevelLoader loader;
 
+    [Header("Variables")]
     private float directionTitle = -1f;
     private float directionNewGame = -1f;
     private float directionSettings = -1f;

@@ -5,10 +5,11 @@ using TMPro;
 
 public class Settings : MonoBehaviour
 {
-    public Slider soundSlider;
-    public AudioMixer masterMixer;
-    public TMP_Dropdown graphicsDropdown;
-    public Toggle fullscreenToggle;
+    [Header("References")]
+    [SerializeField] private Slider soundSlider;
+    [SerializeField] private AudioMixer masterMixer;
+    [SerializeField] private TMP_Dropdown graphicsDropdown;
+    [SerializeField] private Toggle fullscreenToggle;
 
     void Start()
     {
