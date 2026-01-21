@@ -138,6 +138,10 @@ public class PlayerController : MonoBehaviour
         bool _hitLeft = Physics2D.Raycast(left, Vector2.down, playerHalfHeight + 0.1f, _groundMask);
         bool _hitRight = Physics2D.Raycast(right, Vector2.down, playerHalfHeight + 0.1f, _groundMask);
 
+        //Debug.DrawRay(center, Vector2.down * (playerHalfHeight + 0.1f), Color.green);
+        //Debug.DrawRay(left, Vector2.down * (playerHalfHeight + 0.1f), Color.red);
+        //Debug.DrawRay(right, Vector2.down * (playerHalfHeight + 0.1f), Color.blue);
+
         // Gebe wieder ob einer von den dreien "Ground" getreffen hat
         return _hitCenter || _hitLeft || _hitRight;
     }
