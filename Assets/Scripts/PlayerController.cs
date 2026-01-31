@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidBody2D;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
+    [SerializeField] private Countdown countdown;
 
     [Header("Variables")]
     [SerializeField] private float dashSpeed = 20f;         // Geschwindigkeit des Dashes
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private float dashTime;                                 // Variable fuer Dash Laenge wird berechnet
 
     private bool isDashing = false;
+    private bool start = false;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        start = countdown.gameStart;
         FlipCharacterX();
         DashCooldownTimer();
         WasDashingTimer();
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Bewege den Spieler horizontal
-        if (!isDashing)
+        if (!isDashing && start == true)
         {
             rigidBody2D.linearVelocity = new Vector2(horizontal * playerSpeed, rigidBody2D.linearVelocity.y);
         }
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour
     public void Dash(InputAction.CallbackContext context)
     {
         // Wenn die Dash-Aktion ausgeloest wird und die Abklingzeit abgelaufen ist, starte das Dash
-        if (context.performed && dashCooldownTimer <= 0f)
+        if (context.performed && dashCooldownTimer <= 0f && start == true)
         {
             StartCoroutine(DoDash());
         }
@@ -69,7 +72,7 @@ public class PlayerController : MonoBehaviour
     // Methode, die den Dash ausfuehrt
     IEnumerator DoDash()
     {
-        if (horizontal != 0f)
+        if (horizontal != 0f && start == true)
         {
             wasDashingTimer = dashTime;
             isDashing = true;
@@ -95,13 +98,16 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
-        animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
+        if (start == true)
+        {
+            horizontal = context.ReadValue<Vector2>().x;
+            animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && start == true)
         {
             jumpBufferTimer = jumpBuffer;
         }

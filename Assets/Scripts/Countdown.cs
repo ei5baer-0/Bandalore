@@ -7,23 +7,26 @@ public class Countdown : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TMP_Text countdownTMP;
+    [SerializeField] private LevelLoader loader;
 
     [Header("Variables")]
     [SerializeField] private float countdownTime = 3f;
 
     private int currentSeconds;
     private string formattedTime;
+    private float totalTime;
     public bool gameStart;
 
     void Start()
     {
+        totalTime = loader.transitionTime + countdownTime;
         countdownTMP.enabled = true;
         gameStart = false;
     }
 
     void Update()
     {
-        if (countdownTime > 0)
+        if (totalTime > 0)
         {
             Counter();
             TimeCalculation();
@@ -37,13 +40,13 @@ public class Countdown : MonoBehaviour
 
     private void Counter()
     {
-        countdownTime -= Time.deltaTime;
-        countdownTime = Mathf.Max(countdownTime, 0f);
+        totalTime -= Time.deltaTime;
+        totalTime = Mathf.Max(totalTime, 0f);
     }
 
     private void TimeCalculation()
     {
-        currentSeconds = Mathf.FloorToInt(countdownTime % 60f);
+        currentSeconds = Mathf.FloorToInt(totalTime % 60f);
         formattedTime = $"{currentSeconds:0}";
     }
 

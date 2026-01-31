@@ -4,10 +4,11 @@ public class MainMenu : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Animator animatorTitle;
+    [SerializeField] private Animator animatorHelp;
     [SerializeField] private Animator animatorNewGame;
-    [SerializeField] private Animator animatorContinue;
     [SerializeField] private Animator animatorSettings;
     [SerializeField] private Animator animatorLeaderboard;
+    [SerializeField] private Animator animatorCredits;
     [SerializeField] private LevelLoader loader;
 
     [Header("Variables")]
@@ -15,29 +16,30 @@ public class MainMenu : MonoBehaviour
     private float directionNewGame = -1f;
     private float directionSettings = -1f;
     private float directionLeaderboard = -1f;
+    private float directionCredits = -1f;
 
-    public void NewGame()
+    public void Help()
     {
         directionTitle *= -1f;
         animatorTitle.SetFloat("Speed", directionTitle);
-        animatorNewGame.SetFloat("Speed", directionTitle);
+        animatorHelp.SetFloat("Speed", directionTitle);
 
         float startTime = directionTitle < 0 ? 1f : 0f;
 
         animatorTitle.Play("TitleRight", 0, startTime);
-        animatorNewGame.Play("NewGameRight", 0, startTime);
+        animatorHelp.Play("HelpRight", 0, startTime);
     }
 
-    public void Continue()
+    public void NewGame()
     {
         directionNewGame *= -1f;
+        animatorTitle.SetFloat("Speed", directionNewGame);
         animatorNewGame.SetFloat("Speed", directionNewGame);
-        animatorContinue.SetFloat("Speed", directionNewGame);
 
         float startTime = directionNewGame < 0 ? 1f : 0f;
 
-        animatorNewGame.Play("NewGameLeft", 0, startTime);
-        animatorContinue.Play("ContinueRight", 0, startTime);
+        animatorTitle.Play("TitleRight", 0, startTime);
+        animatorNewGame.Play("NewGameRight", 0, startTime);
     }
 
     public void ToScene(string sceneName)
@@ -69,9 +71,20 @@ public class MainMenu : MonoBehaviour
         animatorLeaderboard.Play("LeaderboardLeft", 0, startTime);
     }
 
+    public void Credits()
+    {
+        directionCredits *= -1f;
+        animatorTitle.SetFloat("Speed", directionCredits);
+        animatorCredits.SetFloat("Speed", directionCredits);
+
+        float startTime = directionCredits < 0 ? 1f : 0f;
+
+        animatorTitle.Play("TitleBottom", 0, startTime);
+        animatorCredits.Play("CreditsTop", 0, startTime);
+    }
+
     public void Quit()
     {
         Application.Quit();
-        Debug.Log("Stop");
     }
 }

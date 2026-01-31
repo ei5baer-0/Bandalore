@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [Header("Variables")]
-    [SerializeField] private float transitionTime = 1f;
+    [SerializeField] public float transitionTime = 1f;
 
     public void LevelTransition(string sceneName)
     {

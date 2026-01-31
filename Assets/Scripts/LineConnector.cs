@@ -12,10 +12,13 @@ public class LineConnector : MonoBehaviour
     [SerializeField] private LineRenderer mainLine;
     [SerializeField] private LineRenderer outlineLine;
     [SerializeField] private Transform objectA;
-    [SerializeField] private Transform objectB;
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask connectableLayers;
+    [SerializeField] private Transform transformJojo;
+    [SerializeField] private GameObject objectJojo;
 
     [Header("Variables")]
+    [SerializeField] private float maxDistance = 10f;
     [SerializeField] private float lineExtendSpeed = 2f;
     [SerializeField] private float lineRetractSpeed = 3f;
     [SerializeField] private float pullSpeed = 5f;
@@ -33,16 +36,20 @@ public class LineConnector : MonoBehaviour
     void Start()
     {
         cooldownTimer = cooldown;
+        objectJojo.SetActive(false);
     }
+
     void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame && state == State.Idle && cooldownTimer <= 0)
         {
             StartLine();
             cooldownTimer = cooldown;
+            objectJojo.SetActive(true);
         }
         StateSwitch();
         CooldownTimer();
+        JojoFollow();
     }
 
     private void StateSwitch()
@@ -72,20 +79,24 @@ public class LineConnector : MonoBehaviour
     private void StartLine()
     {
         progress = 0f;
-        mainLine.enabled = true;
-        outlineLine.enabled = true;
         state = State.Extending;
 
-        Vector2 start = objectA.position;
-        Vector2 end = objectB.position;
-        Vector2 dir = end - start;
-        float dist = dir.magnitude;
+        mainLine.enabled = true;
+        outlineLine.enabled = true;
 
-        RaycastHit2D hit = Physics2D.Raycast(start, dir, dist, connectableLayers);
+        Vector2 start = objectA.position;
+
+        Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+        Vector2 dir = (mouseWorld - start).normalized;
+
+        RaycastHit2D hit = Physics2D.Raycast(start, dir, maxDistance, connectableLayers);
 
         hitSomething = hit.collider != null;
-        targetEnd = hitSomething ? hit.point : end;
-        pullTarget = hitSomething ? hit.point : end;
+
+        targetEnd = hitSomething ? hit.point : start + dir * maxDistance;
+
+        pullTarget = targetEnd;
 
         mainLine.SetPosition(0, start);
         mainLine.SetPosition(1, start);
@@ -97,10 +108,9 @@ public class LineConnector : MonoBehaviour
     {
         progress += Time.deltaTime * lineExtendSpeed;
         progress = Mathf.Clamp01(progress);
-        float eased = Mathf.SmoothStep(0f, 1f, progress);
 
         Vector2 start = objectA.position;
-        Vector2 currentEnd = Vector2.Lerp(start, targetEnd, eased);
+        Vector2 currentEnd = Vector2.Lerp(start, targetEnd, progress);
 
         mainLine.SetPosition(0, start);
         mainLine.SetPosition(1, currentEnd);
@@ -109,15 +119,8 @@ public class LineConnector : MonoBehaviour
 
         if (progress >= 1f)
         {
-            if (hitSomething)
-            {
-                pullTimer = pullDuration;
-                state = State.Pulling;
-            }
-            else
-            {
-                state = State.Retracting;
-            }
+            state = hitSomething ? State.Pulling : State.Retracting;
+            pullTimer = pullDuration;
         }
     }
 
@@ -125,10 +128,9 @@ public class LineConnector : MonoBehaviour
     {
         progress -= Time.deltaTime * lineRetractSpeed;
         progress = Mathf.Clamp01(progress);
-        float eased = Mathf.SmoothStep(0f, 1f, progress);
 
         Vector2 start = objectA.position;
-        Vector2 currentEnd = Vector2.Lerp(start, targetEnd, eased);
+        Vector2 currentEnd = Vector2.Lerp(start, targetEnd, progress);
 
         mainLine.SetPosition(0, start);
         mainLine.SetPosition(1, currentEnd);
@@ -137,9 +139,7 @@ public class LineConnector : MonoBehaviour
 
         if (progress <= 0f)
         {
-            mainLine.enabled = false;
-            outlineLine.enabled = false;
-            state = State.Idle;
+            EndLine();
         }
     }
 
@@ -147,18 +147,38 @@ public class LineConnector : MonoBehaviour
     {
         pullTimer -= Time.deltaTime;
 
-        objectA.position = Vector2.MoveTowards(objectA.position, pullTarget, pullSpeed * Time.deltaTime);
+        objectA.position = Vector2.MoveTowards(
+            objectA.position,
+            pullTarget,
+            pullSpeed * Time.deltaTime
+        );
 
         mainLine.SetPosition(0, objectA.position);
         mainLine.SetPosition(1, pullTarget);
         outlineLine.SetPosition(0, objectA.position);
         outlineLine.SetPosition(1, pullTarget);
 
-        if (pullTimer <= 0f || Vector2.Distance(objectA.position, pullTarget) < 0.05f)
+        if (pullTimer <= 0f ||
+            Vector2.Distance(objectA.position, pullTarget) < 0.05f)
         {
-            mainLine.enabled = false;
-            outlineLine.enabled = false;
-            state = State.Idle;
+            EndLine();
         }
+    }
+
+    private void JojoFollow()
+    {
+        if (state == State.Extending || state == State.Retracting || state == State.Pulling)
+        {
+            Vector3 lineEnd = mainLine.GetPosition(1);
+            transformJojo.position = new Vector3(lineEnd.x, lineEnd.y, transformJojo.position.z);
+        }
+    }
+
+    private void EndLine()
+    {
+        mainLine.enabled = false;
+        outlineLine.enabled = false;
+        objectJojo.SetActive(false);
+        state = State.Idle;
     }
 }

@@ -10,10 +10,13 @@ public class Settings : MonoBehaviour
     [SerializeField] private AudioMixer masterMixer;
     [SerializeField] private TMP_Dropdown graphicsDropdown;
     [SerializeField] private Toggle fullscreenToggle;
+    [SerializeField] private Animator animatorVolumeSettings;
+    [SerializeField] private Animator animatorVolumeMenu;
 
     void Start()
     {
         SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
+        VolumeIcon(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
         SetQuality(PlayerPrefs.GetInt("SavedQuality"));
         bool isFullscreen = (PlayerPrefs.GetInt("SavedFullscreen") != 0);
         RefreshFullScreen(isFullscreen);
@@ -29,6 +32,7 @@ public class Settings : MonoBehaviour
         RefreshSlider(soundvalue);
         PlayerPrefs.SetFloat("SavedMasterVolume", soundvalue);
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(soundvalue / 100) * 20f);
+        VolumeIcon(soundvalue);
     }
 
     public void SetVolumeFromSlider()
@@ -62,6 +66,29 @@ public class Settings : MonoBehaviour
     {
         fullscreenToggle.SetIsOnWithoutNotify(isFullscreen);
         Screen.fullScreen = isFullscreen;
+    }
 
+    public void VolumeIcon(float soundvalue)
+    {
+        if (soundvalue < 1)
+        {
+            animatorVolumeSettings.Play("Off");
+            animatorVolumeMenu.Play("Off");
+        }
+        else if (soundvalue < 35)
+        {
+            animatorVolumeSettings.Play("Low");
+            animatorVolumeMenu.Play("Low");
+        }
+        else if (soundvalue < 75)
+        {
+            animatorVolumeSettings.Play("Mid");
+            animatorVolumeMenu.Play("Mid");
+        }
+        else
+        {
+            animatorVolumeSettings.Play("High");
+            animatorVolumeMenu.Play("High");
+        }
     }
 }
