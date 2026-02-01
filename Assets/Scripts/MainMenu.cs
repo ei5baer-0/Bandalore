@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Animator animatorSettings;
     [SerializeField] private Animator animatorLeaderboard;
     [SerializeField] private Animator animatorCredits;
+    [SerializeField] private Animator animatorExit;
     [SerializeField] private LevelLoader loader;
+    [SerializeField] private TMP_Text error;
+    [SerializeField] private TMP_InputField playerNameInput;
 
     [Header("Variables")]
     private float directionTitle = -1f;
@@ -17,6 +21,12 @@ public class MainMenu : MonoBehaviour
     private float directionSettings = -1f;
     private float directionLeaderboard = -1f;
     private float directionCredits = -1f;
+    private float directionExit = -1f;
+
+    public void Start()
+    {
+        error.gameObject.SetActive(false);
+    }
 
     public void Help()
     {
@@ -44,7 +54,16 @@ public class MainMenu : MonoBehaviour
 
     public void ToScene(string sceneName)
     {
-        loader.LevelTransition(sceneName);
+        if (playerNameInput.text.Length >= 3 && playerNameInput.text.Length <= 12)
+        {
+            PlayerPrefs.SetString("CurrentPlayer", playerNameInput.text);
+            loader.LevelTransition(sceneName);
+        }
+        else 
+        {
+            error.gameObject.SetActive(true);
+            return;
+        }
     }
 
     public void Settings()
@@ -81,6 +100,18 @@ public class MainMenu : MonoBehaviour
 
         animatorTitle.Play("TitleBottom", 0, startTime);
         animatorCredits.Play("CreditsTop", 0, startTime);
+    }
+
+    public void Exit()
+    {
+        directionExit *= -1f;
+        animatorExit.SetFloat("Speed", directionExit);
+        animatorTitle.SetFloat("Speed", directionExit);
+
+        float startTime = directionExit < 0 ? 1f : 0f;
+
+        animatorExit.Play("ExitBottom", 0, startTime);
+        animatorTitle.Play("TitleTop", 0, startTime);
     }
 
     public void Quit()
