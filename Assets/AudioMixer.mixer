@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-8894007913677022936
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerEffects
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 384b2c1659d44454a9dbeda4cb2abf4c
+  m_Children: []
+  m_Volume: 49267d4576dd3ea45a1bb59230b97739
+  m_Pitch: 68ea0434a36ce1140b87c2b0f3350868
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 6755840075748038743}
+  - {fileID: -6272430428964433570}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-6272430428964433570
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 67d4e080b7da4814ba157525e923222a
+  m_EffectName: Normalize
+  m_MixLevel: 9220a248637aa2e48a9dcf46cb521e27
+  m_Parameters:
+  - m_ParameterName: Fade in time
+    m_GUID: 25a45fc20d51bf2488ff666e9168dc13
+  - m_ParameterName: Lowest volume
+    m_GUID: 06b44189f437146498a30aeac50d52f4
+  - m_ParameterName: Maximum amp
+    m_GUID: b924ed2101c3c43479e4f89f333a1aad
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -17,10 +57,19 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 4e7f89c3e9a67514d80e08182686051e
-    name: MasterVolume
+    name: Master
+  - guid: cb4c246bdb04da04bbe45fd4f3c01374
+    name: Music
+  - guid: 49267d4576dd3ea45a1bb59230b97739
+    name: PlayerEffects
+  - guid: 582b429315a4c5446937490deac4a3bd
+    name: PlayerSteps
   m_AudioMixerGroupViews:
   - guids:
     - 9c1cddbeb05c3394ab811720bf9f6bd1
+    - ceecbc79562cb704ca3343da9968e3c5
+    - 384b2c1659d44454a9dbeda4cb2abf4c
+    - 4b4e7835a92f08d41a76a352c6505e4d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -33,7 +82,10 @@ AudioMixerGroupController:
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 9c1cddbeb05c3394ab811720bf9f6bd1
-  m_Children: []
+  m_Children:
+  - {fileID: 504622582715687765}
+  - {fileID: -8894007913677022936}
+  - {fileID: 3203145878593359898}
   m_Volume: 4e7f89c3e9a67514d80e08182686051e
   m_Pitch: 80f1b9b0edb0fb14ba1e337f4a394b72
   m_Send: 00000000000000000000000000000000
@@ -66,5 +118,128 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9c280dc2b779d7c4fac35ac277914f12
-  m_FloatValues: {}
+  m_FloatValues:
+    d45119bf95c8847408263a1049bdd086: 20
   m_TransitionOverrides: {}
+--- !u!243 &504622582715687765
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerSteps
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: ceecbc79562cb704ca3343da9968e3c5
+  m_Children: []
+  m_Volume: 582b429315a4c5446937490deac4a3bd
+  m_Pitch: cd473d3b6e53e3947965dfdc243ad82a
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 6122207692885050541}
+  - {fileID: 5533927113692180338}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &3203145878593359898
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Music
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 4b4e7835a92f08d41a76a352c6505e4d
+  m_Children: []
+  m_Volume: cb4c246bdb04da04bbe45fd4f3c01374
+  m_Pitch: 629e3561949924f43bdc5f305296c0ee
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 6703884131326843633}
+  - {fileID: 7517859541882875567}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &5533927113692180338
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4c4d551678a7ab84495da2fd9cecb723
+  m_EffectName: Normalize
+  m_MixLevel: 2829d2703275ae0468b99f76e276b0dd
+  m_Parameters:
+  - m_ParameterName: Fade in time
+    m_GUID: e23057f005b85c8469404203414c750a
+  - m_ParameterName: Lowest volume
+    m_GUID: 86b39037a7a0bd94c8029d5e318749af
+  - m_ParameterName: Maximum amp
+    m_GUID: d45119bf95c8847408263a1049bdd086
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &6122207692885050541
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 1b4d7f9af7271864494d42a427768b60
+  m_EffectName: Attenuation
+  m_MixLevel: 5ead7f0fb2cf7724984007383acd42b8
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &6703884131326843633
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 6011f13a70eaa254d9e4563fe4b080c4
+  m_EffectName: Attenuation
+  m_MixLevel: eb155ca1797f46446a7c0c17aec927cb
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &6755840075748038743
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7180c195f9e49814da8de4e0cf350121
+  m_EffectName: Attenuation
+  m_MixLevel: 3f4f17a77519f8e4ab2075742a9e6670
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &7517859541882875567
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8138a0c6c3062ef4487b3c1f159330d4
+  m_EffectName: Normalize
+  m_MixLevel: 98ef9b14aade27b4f99fac7e660f1be1
+  m_Parameters:
+  - m_ParameterName: Fade in time
+    m_GUID: 7838f4ddcf6fe7e43b0f383b6deb0572
+  - m_ParameterName: Lowest volume
+    m_GUID: 16f145d0f6497ac40b141ce8439c8587
+  - m_ParameterName: Maximum amp
+    m_GUID: 2a4d8ff6b919f864b8cce121e5da6178
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class LineConnector : MonoBehaviour
 {
-    private enum State
+    public enum State
     {
         Idle, Extending, Retracting, Pulling
     }
@@ -25,7 +25,7 @@ public class LineConnector : MonoBehaviour
     [SerializeField] private float pullDuration = 1f;
     [SerializeField] private float cooldown = 3f;
 
-    private State state = State.Idle;
+    public State state = State.Idle;
     private Vector2 targetEnd;
     private Vector2 pullTarget;
     private float progress;

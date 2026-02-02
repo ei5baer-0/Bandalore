@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Coin : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Animator animatorUI;
 
     private Animator animator;

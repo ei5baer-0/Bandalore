@@ -20,16 +20,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float coyoteBuffer = 0.1f;     // Variable fuer Coyote Jump
     [SerializeField] private float jumpBuffer = 0.1f;       // Variable fuer Jump Buffer
 
-    private float playerHalfHeight;
+    public float playerHalfHeight;
+    public float horizontal;                               // -1 == rechts | 1 == links
     private float playerWidth;
-    private float horizontal;                               // -1 == rechts | 1 == links
     private float dashCooldownTimer;                        // Timer fuer die Abklingzeit des Dashes
-    private float coyoteTimer;                              // Timer fuer Coyote Buffer
-    private float jumpBufferTimer;                          
+    public float coyoteTimer;                              // Timer fuer Coyote Buffer
+    public float jumpBufferTimer;                          
     private float wasDashingTimer;
     private float dashTime;                                 // Variable fuer Dash Laenge wird berechnet
 
-    private bool isDashing = false;
+    public bool isDashing = false;
+    public bool isJumping = false;
     private bool start = false;
 
     void Start()
@@ -130,7 +131,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool GetIsGrounded()
+    public bool GetIsGrounded()
     {
         int _groundMask = LayerMask.GetMask("Ground");
 
