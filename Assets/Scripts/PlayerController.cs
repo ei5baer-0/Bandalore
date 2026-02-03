@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
     [SerializeField] private Countdown countdown;
+    [SerializeField] private PlayerSounds playerSounds;
+    [SerializeField] private Timer timer;
 
     [Header("Variables")]
     [SerializeField] private float dashSpeed = 20f;         // Geschwindigkeit des Dashes
@@ -19,7 +21,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 8f;          // Sprungkraft fuer Spieler
     [SerializeField] private float coyoteBuffer = 0.1f;     // Variable fuer Coyote Jump
     [SerializeField] private float jumpBuffer = 0.1f;       // Variable fuer Jump Buffer
+    [SerializeField] private float knockbackForce = 8f;
+    [SerializeField] private float knockbackDuration = 1f;
 
+    [SerializeField] private float flashDuration = 0.1f;   // Dauer des roten Aufleuchtens
+    [SerializeField] private int blinkCount = 5;           // Anzahl der Blinks
+    [SerializeField] private float blinkInterval = 0.1f;   // Zeit zwischen den Blinks
+
+
+    [Header("Public Variables")]
     public float playerHalfHeight;
     public float horizontal;                               // -1 == rechts | 1 == links
     private float playerWidth;
@@ -32,6 +42,9 @@ public class PlayerController : MonoBehaviour
     public bool isDashing = false;
     public bool isJumping = false;
     private bool start = false;
+    private bool isKnockedBack = false;
+    private bool ignoreGroundStop = false;
+    private bool isHit = false;
 
     void Start()
     {
@@ -55,22 +68,22 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Bewege den Spieler horizontal
-        if (!isDashing && start == true)
-        {
+        if (!isDashing && start == true && !isKnockedBack)
             rigidBody2D.linearVelocity = new Vector2(horizontal * playerSpeed, rigidBody2D.linearVelocity.y);
-        }
+
+        if (isKnockedBack && GetIsGrounded() && !ignoreGroundStop)
+            rigidBody2D.linearVelocity = new Vector2(0f, rigidBody2D.linearVelocity.y);
     }
 
     public void Dash(InputAction.CallbackContext context)
     {
         // Wenn die Dash-Aktion ausgeloest wird und die Abklingzeit abgelaufen ist, starte das Dash
-        if (context.performed && dashCooldownTimer <= 0f && start == true)
+        if (context.performed && dashCooldownTimer <= 0f && start == true && !isKnockedBack)
         {
             StartCoroutine(DoDash());
         }
     }
 
-    // Methode, die den Dash ausfuehrt
     IEnumerator DoDash()
     {
         if (horizontal != 0f && start == true)
@@ -108,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && start == true)
+        if (context.performed && start == true && !isKnockedBack)
         {
             jumpBufferTimer = jumpBuffer;
         }
@@ -227,5 +240,70 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void ApplyKnockback(Vector2 enemyPosition)
+    {
+        if (!isKnockedBack)
+        {
+            StartCoroutine(KnockbackCoroutine(enemyPosition));
+        }
+    }
+
+    private IEnumerator KnockbackCoroutine(Vector2 enemyPosition)
+    {
+        isKnockedBack = true;
+        isDashing = false;
+        horizontal = 0;
+        ignoreGroundStop = true;
+
+        Vector2 direction = (transform.position - (Vector3)enemyPosition).normalized;
+        direction.x = Mathf.Sign(direction.x);
+        direction.y = 0.5f;
+        direction.Normalize();
+
+        rigidBody2D.linearVelocity = Vector2.zero;
+        rigidBody2D.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.1f);
+        ignoreGroundStop = false;
+        yield return new WaitForSeconds(knockbackDuration - 0.1f);
+
+        isKnockedBack = false;
+    }
+
+    public void TakeDamage()
+    {
+        if (!isHit)
+        {
+            StartCoroutine(HitFeedbackRoutine());
+
+            if (playerSounds != null)
+                playerSounds.HitSound();
+
+            if (timer != null)
+                timer.AddPenalty();
+        }
+    }
+
+    private IEnumerator HitFeedbackRoutine()
+    {
+        isHit = true;
+
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flashDuration);
+
+        spriteRenderer.color = originalColor;
+
+        for (int i = 0; i < blinkCount; i++)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(blinkInterval);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(blinkInterval);
+        }
+
+        isHit = false;
     }
 }

@@ -13,19 +13,18 @@ public class Settings : MonoBehaviour
     
     void Start()
     {
-        soundSlider[0].value = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        soundSlider[1].value = PlayerPrefs.GetFloat("EffectVolume", 1f);
-        soundSlider[2].value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-
-        SetMasterVolume(soundSlider[0].value);
-        SetEffectVolume(soundSlider[1].value);
-        SetMusicVolume(soundSlider[2].value);
+        soundSlider[0].value = PlayerPrefs.GetFloat("MasterVolume", 100);
+        soundSlider[1].value = PlayerPrefs.GetFloat("EffectVolume", 100);
+        soundSlider[2].value = PlayerPrefs.GetFloat("MusicVolume", 100);
 
         soundSlider[0].onValueChanged.AddListener(SetMasterVolume);
         soundSlider[1].onValueChanged.AddListener(SetEffectVolume);
         soundSlider[2].onValueChanged.AddListener(SetMusicVolume);
 
-        //VolumeIcon(PlayerPrefs.GetFloat("MasterVolume", 100));
+        SetMasterVolume(soundSlider[0].value);
+        SetEffectVolume(soundSlider[1].value);
+        SetMusicVolume(soundSlider[2].value);
+
         SetQuality(PlayerPrefs.GetInt("Quality"));
         bool isFullscreen = (PlayerPrefs.GetInt("Fullscreen") != 0);
         RefreshFullScreen(isFullscreen);
@@ -33,23 +32,26 @@ public class Settings : MonoBehaviour
 
     public void SetMasterVolume(float _soundvalue)
     {
-        masterMixer.SetFloat("Master", Mathf.Log10(Mathf.Clamp(_soundvalue, 0.0001f, 1f)) * 20);
+        if (_soundvalue < 1) _soundvalue = .001f;
+        masterMixer.SetFloat("Master", Mathf.Log(_soundvalue / 100) * 20f);
         PlayerPrefs.SetFloat("MasterVolume", _soundvalue);
-        PlayerPrefs.Save();
-    }
-
-    public void SetMusicVolume(float _soundvalue)
-    {
-        masterMixer.SetFloat("Music", Mathf.Log10(Mathf.Clamp(_soundvalue, 0.0001f, 1f)) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", _soundvalue);
         PlayerPrefs.Save();
     }
 
     public void SetEffectVolume(float _soundvalue)
     {
-        masterMixer.SetFloat("PlayerEffects", Mathf.Log10(Mathf.Clamp(_soundvalue, 0.0001f, 1f)) * 20);
-        masterMixer.SetFloat("PlayerSteps", Mathf.Log10(Mathf.Clamp(_soundvalue, 0.0001f, 1f)) * 20);
+        if (_soundvalue < 1) _soundvalue = .001f;
+        masterMixer.SetFloat("PlayerEffects", Mathf.Log(_soundvalue / 100) * 20f);
+        masterMixer.SetFloat("PlayerSteps", Mathf.Log(_soundvalue / 100) * 20f);
         PlayerPrefs.SetFloat("EffectVolume", _soundvalue);
+        PlayerPrefs.Save();
+    }
+
+    public void SetMusicVolume(float _soundvalue)
+    {
+        if (_soundvalue < 1) _soundvalue = .001f;
+        masterMixer.SetFloat("Music", Mathf.Log(_soundvalue / 100) * 20f);
+        PlayerPrefs.SetFloat("MusicVolume", _soundvalue);
         PlayerPrefs.Save();
     }
 

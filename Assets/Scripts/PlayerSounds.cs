@@ -112,17 +112,21 @@ public class PlayerSounds : MonoBehaviour
             isJump = false;
     }
 
-    /*private void HitSound()
+    public void HitSound()
     {
-        if ( && isHurt == false)
+        if (!isHurt)
         {
             isHurt = true;
             audioSource[1].PlayOneShot(otherSounds[3]);
+            StartCoroutine(ResetHurt());
         }
+    }
 
-        if ()
-            isHurt = false;
-    }*/
+    private IEnumerator ResetHurt()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isHurt = false;
+    }
 
     IEnumerator Music()
     {
