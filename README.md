@@ -27,9 +27,9 @@ Dieser 2D Platformer soll ein Prototyp sein um die Grudsätze der Videospiel ers
 
 ## Kontakt
 
-Luis Friesen – [LinkedIn](https://www.linkedin.com/in/luis-friesen-42346b298/) - Team Lead - Programmer
-Nils Hermes - [LinkedIn](https://www.linkedin.com/in/nils-hermes-530bb3418/) - Art Lead - Audio
-Satisha Eigenbrodt - [LinkedIn](https://www.linkedin.com/in/satisha-eigenbrodt-b93b98380/) - Art - Audio
-Mike Huck - Audio
-
-Projektlink: [https://github.com/ei5baer-0/Bandalore](https://github.com/ei5baer-0/Bandalore)
+- Luis Friesen – [LinkedIn](https://www.linkedin.com/in/luis-friesen-42346b298/) - Team Lead - Programmer
+- Nils Hermes - [LinkedIn](https://www.linkedin.com/in/nils-hermes-530bb3418/) - Art Lead - Audio
+- Satisha Eigenbrodt - [LinkedIn](https://www.linkedin.com/in/satisha-eigenbrodt-b93b98380/) - Art - Audio
+- Mike Huck - Audio
+</div>
+- Projektlink: [https://github.com/ei5baer-0/Bandalore](https://github.com/ei5baer-0/Bandalore)
