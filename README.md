@@ -18,9 +18,11 @@ Dieser 2D Platformer soll ein Prototyp sein um die Grudsätze der Videospiel ers
 
 ## Screenshots und Demo Video
 
+-Bilder
 ![Hauptmenü](docs/bild1.PNG)
 ![Game](docs/bild2.PNG)
 ![](docs/bild3.PNG)
+-Prototyp Gameplay Video
 [![Bandalore Prototyp Gameplay](https://img.youtube.com/vi/WH4X-p2R0o0/maxresdefault.jpg)](https://www.youtube.com/watch?v=WH4X-p2R0o0)
 
 
