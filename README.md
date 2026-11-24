@@ -18,10 +18,9 @@ Dieser 2D Platformer soll ein Prototyp sein um die Grudsätze der Videospiel ers
 
 ## Screenshots und Demo Video
 
-![Hauptmenü](docs/screenshot1.png)
-![Game](docs/screenshot2.png)
-![](docs/screenshot3.png)
-![](docs/screenshot4.png)
+![Hauptmenü](docs/bild1.png)
+![Game](docs/bild2.png)
+![](docs/bild3.png)
 ![Game Play](https://www.youtube.com/watch?v=WH4X-p2R0o0&list=PLRUH7vlqthBU)
 
 
