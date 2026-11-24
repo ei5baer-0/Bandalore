@@ -13,7 +13,7 @@ Dieser 2D Platformer soll ein Prototyp sein um die Grudsätze der Videospiel ers
 ### Erstellt mit
 
 - [Unity](https://unity.com)
-- [Aseprite]((https://aseprite.org/))
+- [Aseprite](https://aseprite.org/)
 - [Audacity](https://www.audacityteam.org/)
 
 ## Screenshots und Demo Video
